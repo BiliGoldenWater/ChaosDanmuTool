@@ -3,7 +3,7 @@
  */
 
 import React, { ReactNode } from "react";
-import style from "./StatusUpdate.module.css";
+import "./StatusUpdate.css";
 import { DanmuMessage } from "../../../../../../../utils/command/DanmuMessage";
 import { ReceiverStatusUpdate } from "../../../../../../../utils/command/ReceiverStatusUpdate";
 
@@ -36,9 +36,7 @@ export class StatusUpdate extends React.Component<Props> {
     }
 
     return (
-      <div className={style.StatusUpdate}>
-        直播间连接状态现在为: {statusMsg}
-      </div>
+      <div className="StatusUpdate">直播间连接状态现在为: {statusMsg}</div>
     );
   }
 }

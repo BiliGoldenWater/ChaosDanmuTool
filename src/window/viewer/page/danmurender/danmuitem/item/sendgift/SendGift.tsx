@@ -2,15 +2,15 @@
  * SPDX-License-Identifier: AGPL-3.0-only
  */
 
-import React, { ReactNode } from "react";
-import style from "./SendGift.module.css";
-import { TSendGift } from "../../../../../../../type/TSendGift";
-import { UserInfo } from "../../../../../../../component/bilibili/userinfo/UserInfo";
-import { emptyUserInfo } from "../../../../../../../type/TUserInfo";
-import { ConfigContext } from "../../../../../utils/ConfigContext";
-import { TGiftConfig } from "../../../../../../../type/giftconfig/TGiftConfig";
-import { TGiftInfo } from "../../../../../../../type/giftconfig/TGiftInfo";
-import { GiftContent } from "../../../../../../../component/bilibili/giftcontent/GiftContent";
+import React, {ReactNode} from "react";
+import "./SendGift.css";
+import {TSendGift} from "../../../../../../../type/TSendGift";
+import {UserInfo} from "../../../../../../../component/bilibili/userinfo/UserInfo";
+import {emptyUserInfo} from "../../../../../../../type/TUserInfo";
+import {ConfigContext} from "../../../../../utils/ConfigContext";
+import {TGiftConfig} from "../../../../../../../type/giftconfig/TGiftConfig";
+import {TGiftInfo} from "../../../../../../../type/giftconfig/TGiftInfo";
+import {GiftContent} from "../../../../../../../component/bilibili/giftcontent/GiftContent";
 
 class Props {
   sendGift: TSendGift;
@@ -21,7 +21,7 @@ export class SendGift extends React.Component<Props> {
     const data = this.props.sendGift.data;
     return (
       <ConfigContext.Consumer>
-        {({ giftConfig }) => {
+        {({giftConfig}) => {
           const gc: TGiftConfig = giftConfig;
           const gi: TGiftInfo = gc ? gc.data.get(data.giftId) : undefined;
 
@@ -33,7 +33,7 @@ export class SendGift extends React.Component<Props> {
           }
 
           return (
-            <div className={style.SendGift}>
+            <div className="SendGift">
               <UserInfo
                 userInfo={{
                   ...emptyUserInfo,

@@ -3,7 +3,7 @@
  */
 
 import React, { ReactNode } from "react";
-import style from "./StatusBar.module.css";
+import "./StatusBar.css";
 import { StatusBarTemplate } from "./StatusBarTemplate";
 
 class Props {
@@ -16,14 +16,14 @@ export class StatusBar extends React.Component<Props> {
     return (
       <div>
         <StatusBarTemplate
-          className={style.statusBar}
+          className={"statusBar"}
           message={this.props.message}
           style={this.props.style}
         >
           {this.props.children}
         </StatusBarTemplate>
         <StatusBarTemplate
-          className={style.statusBar_placeholder + " " + style.statusBar}
+          className={"statusBar_placeholder statusBar"}
           message={this.props.message}
           style={this.props.style}
         >

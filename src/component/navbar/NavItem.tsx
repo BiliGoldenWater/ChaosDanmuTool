@@ -3,7 +3,7 @@
  */
 
 import React, { memo } from "react";
-import style from "./NavBar.module.css";
+import "./NavBar.css";
 
 class Props {
   index: number;
@@ -16,10 +16,7 @@ const NavItem = (props: Props) => {
   return (
     <div
       className={
-        style.navItem +
-        (props.active
-          ? " " + style.navItemActive
-          : " " + style.navItemSwitchable)
+        "navItem" + (props.active ? " navItemActive" : " navItemSwitchable")
       }
       onClick={() => {
         props.onClick(props.index);

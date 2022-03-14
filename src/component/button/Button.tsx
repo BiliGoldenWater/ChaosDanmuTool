@@ -3,7 +3,7 @@
  */
 
 import React from "react";
-import style from "./Button.module.css";
+import "./Button.css";
 
 class Props {
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
@@ -16,8 +16,7 @@ export class Button extends React.Component<Props> {
     return (
       <button
         className={
-          style.Button +
-          (this.props.className ? " " + this.props.className : "")
+          "Button" + (this.props.className ? " " + this.props.className : "")
         }
         style={this.props.style}
         onClick={this.props.onClick}

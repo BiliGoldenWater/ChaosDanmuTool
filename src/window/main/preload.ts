@@ -24,9 +24,9 @@ export interface ApiElectron {
   runKoaServer: (port: number) => void;
   closeKoaServer: () => void;
 
-  runWebsocketServer: (port: number) => void;
-  closeWebsocketServer: () => void;
-  websocketBroadcast: (data: string) => void;
+  runCommandBroadcastServer: (port: number) => void;
+  closeCommandBroadcastServer: () => void;
+  broadcastCommand: (data: string) => void;
 
   openViewer: () => void;
   closeViewer: () => void;
@@ -90,14 +90,14 @@ const apiElectron: ApiElectron = {
     ipcRenderer.sendSync("koaServer", "close");
   },
 
-  runWebsocketServer: (port: number): void => {
-    ipcRenderer.sendSync("websocketServer", "run", port);
+  runCommandBroadcastServer: (port: number): void => {
+    ipcRenderer.sendSync("commandBroadcastServer", "run", port);
   },
-  closeWebsocketServer: (): void => {
-    ipcRenderer.sendSync("websocketServer", "close");
+  closeCommandBroadcastServer: (): void => {
+    ipcRenderer.sendSync("commandBroadcastServer", "close");
   },
-  websocketBroadcast: (data: string): void => {
-    ipcRenderer.sendSync("websocketServer", "broadcast", data);
+  broadcastCommand: (data: string): void => {
+    ipcRenderer.sendSync("commandBroadcastServer", "broadcast", data);
   },
 
   openViewer: (): void => {

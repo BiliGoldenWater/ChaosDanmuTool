@@ -2,11 +2,11 @@
  * SPDX-License-Identifier: AGPL-3.0-only
  */
 
-import React, { ReactNode } from "react";
-import style from "./RoomStatusChange.module.css";
-import { ConfigContext } from "../../../../../utils/ConfigContext";
-import { TPreparing } from "../../../../../../../type/TPreparing";
-import { TLive } from "../../../../../../../type/TLive";
+import React, {ReactNode} from "react";
+import "./RoomStatusChange.css";
+import {ConfigContext} from "../../../../../utils/ConfigContext";
+import {TPreparing} from "../../../../../../../type/TPreparing";
+import {TLive} from "../../../../../../../type/TLive";
 
 class Props {
   changeMsg: TLive | TPreparing;
@@ -26,10 +26,10 @@ export class RoomStatusChange extends React.Component<Props> {
       }
     }
     return (
-      <div className={style.RoomStatusChange}>
+      <div className="RoomStatusChange">
         直播间
         <ConfigContext.Consumer>
-          {({ config }) => (
+          {({config}) => (
             <div style={config.style.userName}>
               {this.props.changeMsg.roomid}
             </div>

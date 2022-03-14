@@ -3,7 +3,7 @@
  */
 
 import React from "react";
-import style from "./UserFace.module.css";
+import "./UserFace.css";
 
 class Props {
   face?: string;
@@ -12,8 +12,8 @@ class Props {
 export class UserFace extends React.Component<Props> {
   render(): JSX.Element {
     return (
-      <div className={style.UserFace}>
-        <img className={style.UserFace_face} src={this.props.face} alt={""} />
+      <div className="UserFace">
+        <img className="UserFace_face" src={this.props.face} alt={""}/>
       </div>
     );
   }

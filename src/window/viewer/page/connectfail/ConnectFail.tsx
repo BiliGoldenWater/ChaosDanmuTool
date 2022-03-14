@@ -3,7 +3,7 @@
  */
 
 import React from "react";
-import style from "./ConnectFail.module.css";
+import "./ConnectFail.css";
 import { Button } from "../../../../component/button/Button";
 
 class Props {
@@ -13,13 +13,13 @@ class Props {
 export class ConnectFail extends React.Component<Props> {
   render(): JSX.Element {
     return (
-      <div className={style.ConnectFail}>
+      <div className={"ConnectFail"}>
         连接失败
         <Button
           onClick={() => {
             this.props.connectMethod && this.props.connectMethod();
           }}
-          className={style.ConnectFail_retryBtn}
+          className={"ConnectFail_retryBtn"}
         >
           重新尝试
         </Button>

@@ -3,7 +3,7 @@
  */
 
 import React, { ReactNode } from "react";
-import style from "./main.module.css";
+import "./main.css";
 import {
   Config,
   DanmuViewCustomConfig,
@@ -429,7 +429,7 @@ export class Main extends React.Component<Props, State> {
     }
 
     return (
-      <div className={style.main} style={this.state.config.style.mainStyle}>
+      <div className={"main"} style={this.state.config.style.mainStyle}>
         <ConfigContext.Provider
           value={{
             config: this.state.config,

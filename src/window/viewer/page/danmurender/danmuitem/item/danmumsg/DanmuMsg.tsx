@@ -3,11 +3,11 @@
  */
 
 import React from "react";
-import style from "./DanmuMsg.module.css";
-import { TDanmuMsg } from "../../../../../../../type/TDanmuMsg";
-import { UserInfo } from "../../../../../../../component/bilibili/userinfo/UserInfo";
-import { emptyUserInfo } from "../../../../../../../type/TUserInfo";
-import { DanmuContent } from "../../../../../../../component/bilibili/danmucontent/DanmuContent";
+import "./DanmuMsg.css";
+import {TDanmuMsg} from "../../../../../../../type/TDanmuMsg";
+import {UserInfo} from "../../../../../../../component/bilibili/userinfo/UserInfo";
+import {emptyUserInfo} from "../../../../../../../type/TUserInfo";
+import {DanmuContent} from "../../../../../../../component/bilibili/danmucontent/DanmuContent";
 
 class Props {
   data: TDanmuMsg;
@@ -18,7 +18,7 @@ export class DanmuMsg extends React.Component<Props> {
     const data: TDanmuMsg = this.props.data;
 
     return (
-      <div className={style.DanmuMsg}>
+      <div className="DanmuMsg">
         <UserInfo
           userInfo={{
             ...emptyUserInfo,
@@ -31,7 +31,7 @@ export class DanmuMsg extends React.Component<Props> {
           }}
           medalInfo={data.medalInfo}
         />
-        <DanmuContent content={data.content} emojiData={data.emojiData} />
+        <DanmuContent content={data.content} emojiData={data.emojiData}/>
       </div>
     );
   }

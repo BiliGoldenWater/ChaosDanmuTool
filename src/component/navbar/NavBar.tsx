@@ -3,7 +3,7 @@
  */
 
 import React from "react";
-import style from "./NavBar.module.css";
+import "./NavBar.css";
 import NavItem from "./NavItem";
 
 class Props {
@@ -38,7 +38,7 @@ export class NavBar extends React.Component<Props, State> {
         />
       );
     });
-    return <div className={style.navBar}>{items}</div>;
+    return <div className="navBar">{items}</div>;
   }
 
   active(index: number): void {
@@ -46,7 +46,7 @@ export class NavBar extends React.Component<Props, State> {
       if (prevState.active != index) {
         props.onSwitch(index);
       }
-      return { active: index };
+      return {active: index};
     });
   }
 }

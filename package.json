@@ -3,12 +3,8 @@
   "productName": "ChaosDanmuTool",
   "version": "0.7.0",
   "description": "A tool for process/view Danmu on bilibili",
-  "main": ".webpack/main",
   "scripts": {
-    "start": "electron-forge start",
-    "package": "electron-forge package",
-    "make": "electron-forge make",
-    "publish": "electron-forge publish",
+    "build": "vite build && rollup -c rollup.main.config.js && electron-builder",
     "lint": "eslint --ext .ts,.tsx ."
   },
   "keywords": [],
@@ -17,51 +13,60 @@
     "email": "2439577268@qq.com"
   },
   "license": "AGPL-3.0-only",
-  "config": {
-    "forge": "./config.forge.js"
+  "build": {
+    "productName": "Chaos Danmu Tool",
+    "appId": "indi.goldenwater.chaosdanmutool",
+    "directories": {
+      "output": "build"
+    },
+    "files": [
+      "package.json",
+      {
+        "from": "dist",
+        "to": ".",
+        "filter": [
+          "**/*",
+          "!foo/*.js"
+        ]
+      }
+    ]
   },
   "devDependencies": {
     "@ant-design/icons": "^4.7.0",
-    "@electron-forge/cli": "^6.0.0-beta.63",
-    "@electron-forge/maker-deb": "^6.0.0-beta.63",
-    "@electron-forge/maker-rpm": "^6.0.0-beta.63",
-    "@electron-forge/maker-squirrel": "^6.0.0-beta.63",
-    "@electron-forge/maker-zip": "^6.0.0-beta.63",
-    "@electron-forge/plugin-webpack": "6.0.0-beta.63",
+    "@rollup/plugin-commonjs": "^21.0.2",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^13.1.3",
+    "@rollup/plugin-typescript": "^8.3.1",
     "@types/koa": "^2.13.4",
     "@types/koa-static": "^4.0.2",
     "@types/lodash-es": "^4.17.5",
     "@types/markdown-it": "^12.2.3",
-    "@types/react": "^17.0.20",
-    "@types/react-dom": "^17.0.9",
+    "@types/react": "^17.0.30",
+    "@types/react-dom": "^17.0.10",
     "@types/uuid": "^8.3.3",
     "@types/ws": "^8.5.3",
     "@typescript-eslint/eslint-plugin": "^5.14.0",
     "@typescript-eslint/parser": "^5.14.0",
-    "@vercel/webpack-asset-relocator-loader": "1.7.0",
+    "@vitejs/plugin-react": "^1.2.0",
     "antd": "^4.17.4",
-    "css-loader": "^6.0.0",
     "dot-prop": "^7.2.0",
     "echarts": "^5.2.2",
     "echarts-for-react": "^3.0.2",
     "electron": "^17.1.2",
+    "electron-builder": "^22.14.13",
     "eslint": "^8.11.0",
     "eslint-plugin-import": "^2.20.0",
-    "fork-ts-checker-webpack-plugin": "^7.2.1",
     "koa": "^2.13.1",
     "koa-static": "^5.0.0",
     "lodash-es": "^4.17.21",
     "markdown-it": "^12.3.0",
-    "node-loader": "^2.0.0",
-    "style-loader": "^3.0.0",
-    "ts-loader": "^9.2.2",
-    "typescript": "^4.0.2",
-    "typescript-plugin-css-modules": "^3.4.0",
+    "rollup-plugin-esbuild": "^4.8.2",
+    "typescript": "^4.5.4",
     "uuid": "^8.3.2",
+    "vite": "^2.8.6",
     "ws": "^8.2.2"
   },
   "dependencies": {
-    "electron-squirrel-startup": "^1.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   }

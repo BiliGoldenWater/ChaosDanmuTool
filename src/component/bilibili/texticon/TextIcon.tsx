@@ -3,7 +3,7 @@
  */
 
 import React from "react";
-import style from "./TextIcon.module.css";
+import "./TextIcon.css";
 
 class Props {
   style?: React.CSSProperties;
@@ -12,7 +12,7 @@ class Props {
 export class TextIcon extends React.Component<Props> {
   render(): JSX.Element {
     return (
-      <div className={style.TextIcon}>
+      <div className="TextIcon">
         <div style={this.props.style}>{this.props.children}</div>
       </div>
     );

@@ -4,7 +4,7 @@
 
 import Zlib from "zlib";
 import WebSocket from "ws";
-import { WebsocketServer } from "../server/WebsocketServer";
+import { CommandBroadcastServer } from "../server/CommandBroadcastServer";
 import { getStatusUpdateMessage } from "../command/ReceiverStatusUpdate";
 import { getActivityUpdateMessage } from "../command/ActivityUpdate";
 import { ErrorCode } from "../ErrorCode";
@@ -205,7 +205,7 @@ export class DanmuReceiver {
   }
 
   static broadcastMessage(message: unknown): void {
-    WebsocketServer.broadcast(JSON.stringify(message));
+    CommandBroadcastServer.broadcast(JSON.stringify(message));
     this.messageHistory.push(getMessageLogMessage(message));
   }
 

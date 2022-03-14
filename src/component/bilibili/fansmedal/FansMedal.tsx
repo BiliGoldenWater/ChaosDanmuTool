@@ -3,10 +3,10 @@
  */
 
 import React from "react";
-import style from "./FansMedal.module.css";
-import { TMedalInfo } from "../../../type/TMedalInfo";
-import { rgbI2S } from "../../../utils/FormatConverters";
-import { getGuardIconUrl } from "../../../type/TGuardBuy";
+import "./FansMedal.css";
+import {TMedalInfo} from "../../../type/TMedalInfo";
+import {rgbI2S} from "../../../utils/FormatConverters";
+import {getGuardIconUrl} from "../../../type/TGuardBuy";
 
 class Props {
   medalInfo: TMedalInfo;
@@ -23,9 +23,9 @@ export class FansMedal extends React.Component<Props> {
     const medal_color_end = rgbI2S(medalInfo.medal_color_end);
     const medal_color = rgbI2S(medalInfo.medal_color);
     return (
-      <div className={style.FansMedal}>
+      <div className="FansMedal">
         <div
-          className={style.FansMedal_name}
+          className="FansMedal_name"
           style={{
             borderColor: medal_color_border,
             backgroundImage: "linear-gradient(45deg,{0},{1})"
@@ -35,7 +35,7 @@ export class FansMedal extends React.Component<Props> {
         >
           {medalInfo.guard_level != 0 && (
             <img
-              className={style.FansMedal_guardIcon}
+              className="FansMedal_guardIcon"
               src={getGuardIconUrl(medalInfo.guard_level)}
               alt={""}
             />
@@ -43,7 +43,7 @@ export class FansMedal extends React.Component<Props> {
           {medalInfo.medal_name}
         </div>
         <div
-          className={style.FansMedal_lvl}
+          className="FansMedal_lvl"
           style={{
             borderColor: medal_color_border,
             color: medal_color,

@@ -2,7 +2,7 @@
  * SPDX-License-Identifier: AGPL-3.0-only
  */
 
-import { Server } from "ws";
+import { WebSocketServer } from "ws";
 import { Server as HttpServer } from "http";
 import { getConfigUpdateMessage } from "../command/ConfigUpdate";
 import { ConfigManager } from "../config/ConfigManager";
@@ -16,12 +16,12 @@ import { getMessageCommand } from "../command/MessageCommand";
 const get = ConfigManager.get.bind(ConfigManager);
 const getConfig = ConfigManager.getConfig.bind(ConfigManager);
 
-export class WebsocketServer {
-  static server: Server;
+export class CommandBroadcastServer {
+  static server: WebSocketServer;
 
   static run(server: HttpServer): void {
     this.close();
-    this.server = new Server({ server });
+    this.server = new WebSocketServer({ server });
     this.server.on("connection", (socket) => {
       socket.send(JSON.stringify(getConfigUpdateMessage(getConfig())));
       socket.send(

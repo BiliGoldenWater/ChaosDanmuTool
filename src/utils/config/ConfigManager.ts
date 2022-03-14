@@ -6,7 +6,7 @@ import { Config, getDefaultConfig } from "./Config";
 import * as fs from "fs";
 import { ErrorCode } from "../ErrorCode";
 import { dialog } from "electron";
-import { WebsocketServer } from "../server/WebsocketServer";
+import { CommandBroadcastServer } from "../server/CommandBroadcastServer";
 import { getConfigUpdateMessage } from "../command/ConfigUpdate";
 import { getProperty, setProperty } from "dot-prop";
 
@@ -125,7 +125,7 @@ export class ConfigManager {
   }
 
   static onChange(): void {
-    WebsocketServer.broadcast(
+    CommandBroadcastServer.broadcast(
       JSON.stringify(getConfigUpdateMessage(this.config))
     );
     this.get("autoSaveOnChange") ? this.save() : "";
